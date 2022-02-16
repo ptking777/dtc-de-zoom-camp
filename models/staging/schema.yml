@@ -12,5 +12,5 @@ sources:
       schema: taxirides
 
       tables:
-        - name: green_tripdata
-        - name: yellow_tripdata      
+        - name: external_green_tripdata
+        - name: external_yellow_tripdata      
