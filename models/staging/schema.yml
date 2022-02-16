@@ -9,7 +9,7 @@ sources:
       # For postgres:
       database: dtc-de-338616
 
-      schema: taxirides
+      schema: taxi_data_ny
 
       tables:
         - name: external_green_tripdata
