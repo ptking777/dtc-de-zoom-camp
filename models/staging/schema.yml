@@ -1,0 +1,16 @@
+
+version: 2
+
+sources:
+    - name: staging
+      #For bigquery:
+      #database: taxi-rides-ny-339813
+
+      # For postgres:
+      database: dtc-de-338616
+
+      schema: taxirides
+
+      tables:
+        - name: green_tripdata
+        - name: yellow_tripdata      
