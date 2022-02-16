@@ -12,5 +12,5 @@ sources:
       schema: taxi_data_ny
 
       tables:
-        - name: external_green_tripdata
-        - name: external_yellow_tripdata      
+        - name: green_tripdata_csv
+        - name: yellow_tripdata_csv      
