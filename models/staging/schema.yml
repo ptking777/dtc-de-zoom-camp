@@ -12,5 +12,11 @@ sources:
       schema: taxi_data_ny
 
       tables:
-        - name: green_tripdata_csv
-        - name: yellow_tripdata_csv      
+        - name: green_tripdata
+          identifier: green_tripdata_csv
+          description: >          
+              Green Cab Data.
+        - name: yellow_tripdata
+          identifier:  yellow_tripdata_csv
+          description: >          
+              Yellow Cab Data.
