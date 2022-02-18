@@ -24,7 +24,7 @@ select
     cast(dolocationid as integer) as dropoff_locationid,
     sr_flag
 from tripdata
-where rn = 1
+--where rn = 1
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
 {% if var('is_test_run', default=true) %}
