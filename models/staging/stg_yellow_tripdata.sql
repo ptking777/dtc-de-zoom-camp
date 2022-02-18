@@ -6,6 +6,7 @@ with tripdata as
   from {{ source('staging','yellow_tripdata') }}
   where vendorid is not null 
 )
+
 select
    -- identifiers
     {{ dbt_utils.surrogate_key(['vendorid', 'tpep_pickup_datetime']) }} as tripid,
