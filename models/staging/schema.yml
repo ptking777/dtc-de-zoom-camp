@@ -20,6 +20,11 @@ sources:
           identifier:  yellow_tripdata_csv
           description: >          
               Yellow Cab Data.
+        - name: fhv_tripdata
+          identifier:  fhv_tripdata_csv
+          description: >          
+              FHV Cab Data.
+
 
 models:
     - name: stg_green_tripdata
