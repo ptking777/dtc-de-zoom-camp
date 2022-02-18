@@ -33,10 +33,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   taxi_rides:
-    # Applies to all files under models/example/
-    #example:
-    #  materialized: view
-  taxi_rides_ny:
       # Applies to all files under models/.../
       staging:
           materialized: view
