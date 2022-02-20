@@ -12,8 +12,8 @@ with tripdata as
     row_number() over(partition by cast(substring(dispatching_base_num,2) as integer), pickup_datetime) as rn
   from {{ source('staging','fhv_tripdata') }}
   where dispatching_base_num is not null 
-  and pulocationid is not null 
-  and dolocationid is not null
+  --and pulocationid is not null 
+  --and dolocationid is not null
   and pulocationid != 'PULocationID'
 )
 
