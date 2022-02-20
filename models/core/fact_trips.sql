@@ -10,10 +10,46 @@ yellow_data as (
     from {{ ref('stg_yellow_tripdata') }}
 ), 
 
+fhv_data as (
+    select 
+        tripid,
+        vendorid,
+        ratecodeid,
+        pickup_locationid,
+        dropoff_locationid,
+        pickup_datetime,
+        dropoff_datetime,
+
+    -- trip info
+        cast(NULL AS boolean) as store_and_fwd_flag,
+        cast(NULL as integer) as passenger_count,
+        cast(NULL as numeric) as trip_distance,
+        cast(NULl as integer) as trip_type,
+
+        -- payment info
+
+        cast(0.0 as numeric) as fare_amount,
+        cast(NULL as numeric) as extra,
+        cast(0.0 as numeric) as mta_tax,
+        cast(0.0 as numeric) as tip_amount,
+        cast(NULL as numeric) as tolls_amount,
+        cast(NULL as numeric) as ehail_fee,
+        cast(NULL as numeric) as improvement_surcharge,
+        cast(0.0 as numeric) as total_amount,
+        cast(NULL as integer) as payment_type,
+        cast(NULL as string) as payment_type_description, 
+        cast(NULL as numeric) as congestion_surcharge,   
+        'FHV' as service_type
+        from {{ ref('stg_fhv_tripdata') }}
+), 
+
+
 trips_unioned as (
     select * from green_data
     union all
     select * from yellow_data
+    union all 
+    select * from fhv_data
 ), 
 
 dim_zones as (

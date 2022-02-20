@@ -6,7 +6,13 @@ with trip_data as (
 dim_zones as (
     select * from {{ ref('dim_zones') }}
     where borough != 'Unknown'
+),
+fhv_vendors as (
+    SELECT *
+    FROM {{ ref('stg_fhv_vendors') }}
+
 )
+
 select 
     trip_data.tripid, 
     trip_data.vendorid,
