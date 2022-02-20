@@ -5,7 +5,7 @@ with trip_data as (
 ),
 dim_zones as (
     select * from {{ ref('dim_zones') }}
-    --where borough != 'Unknown'
+    where borough != 'Unknown'
 )
 select 
     trip_data.tripid, 
@@ -19,7 +19,7 @@ select
     dropoff_zone.zone as dropoff_zone,
     trip_data.pickup_datetime, 
     trip_data.dropoff_datetime, 
-    IFNULL(trip_data.sr_flag , "0") as sr_flag     
+    trip_data.sr_flag     
 from trip_data
 left join dim_zones as pickup_zone
 on trip_data.pickup_locationid = pickup_zone.locationid

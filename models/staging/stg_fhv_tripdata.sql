@@ -4,12 +4,17 @@ with tripdata as
     dispatching_base_num,
     pickup_datetime,
     dropoff_datetime,
+    --IFNULL(pulocationid,"0") AS pulocationid,
+    --IFNULL(dolocationid,"0") AS dolocationid,
     pulocationid,
     dolocationid,
-    sr_flag,
-    row_number() over(partition by dispatching_base_num, pickup_datetime) as rn
+    IFNULL(sr_flag,"0") AS sr_flag,
+    row_number() over(partition by cast(substring(dispatching_base_num,2) as integer), pickup_datetime) as rn
   from {{ source('staging','fhv_tripdata') }}
   where dispatching_base_num is not null 
+  and pulocationid is not null 
+  and dolocationid is not null
+  and pulocationid != 'PULocationID'
 )
 
 select 
