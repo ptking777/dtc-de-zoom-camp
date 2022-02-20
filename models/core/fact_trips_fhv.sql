@@ -21,8 +21,8 @@ select
     trip_data.dropoff_datetime, 
     trip_data.sr_flag     
 from trip_data
-left join dim_zones as pickup_zone
+inner join dim_zones as pickup_zone
 on trip_data.pickup_locationid = pickup_zone.locationid
-left join dim_zones as dropoff_zone
+inner join dim_zones as dropoff_zone
 on trip_data.dropoff_locationid = dropoff_zone.locationid
 where trip_data.pickup_locationid is not null
