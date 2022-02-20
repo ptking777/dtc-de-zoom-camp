@@ -28,16 +28,16 @@ fhv_data as (
 
         -- payment info
 
-        cast(NULL as numeric) as fare_amount,
+        cast(0.0 as numeric) as fare_amount,
         cast(NULL as numeric) as extra,
-        cast(NULL as numeric) as mta_tax,
-        cast(NULL as numeric) as tip_amount,
+        cast(0.0 as numeric) as mta_tax,
+        cast(0.0 as numeric) as tip_amount,
         cast(NULL as numeric) as tolls_amount,
         cast(NULL as numeric) as ehail_fee,
         cast(NULL as numeric) as improvement_surcharge,
-        cast(NULL as numeric) as total_amount,
+        cast(0.0 as numeric) as total_amount,
         cast(NULL as integer) as payment_type,
-        cast(NULL as integer) as payment_type_description, 
+        cast(NULL as string) as payment_type_description, 
         cast(NULL as numeric) as congestion_surcharge,   
         'FHV' as service_type
         from {{ ref('stg_fhv_tripdata') }}
